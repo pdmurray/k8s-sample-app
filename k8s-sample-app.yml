@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: k8s-sample-app
-        image: gcr.io/harness-test-338118/sample-app:latest
+        image: <+artifact.image>
         ports:
           - name: http
             containerPort: 8080
