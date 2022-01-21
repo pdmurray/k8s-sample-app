@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: k8s-sample-app
-        image: <+artifact.image>
+        image: {{.Values.image}}
         ports:
           - name: http
             containerPort: 8080
