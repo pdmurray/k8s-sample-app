@@ -1,1 +1,2 @@
 image: <+artifact.image>
+sdkKey: <+serviceVariables.sdkkey>

@@ -4,10 +4,11 @@ const http = require('http');
 const pkg = require('@harnessio/ff-nodejs-server-sdk');
 const { Client, Event } = pkg;
 
-const sdkKey = '';
+const sdkKey = process.env.SDKKEY;
 
 const client = new Client(sdkKey, {
-  enableStream: true,
+  enableStream: false,
+  pollInterval: 10 * 1000
 });
 
 client.on(Event.READY, () => {

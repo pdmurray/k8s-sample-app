@@ -27,7 +27,9 @@ spec:
             memory: 100Mi
         env:
           - name: NAME
-            value: Patrick
+            value: Default
+          - name: SDKKEY
+            value: {{.Values.sdkKey}}
 
 ---
 apiVersion: v1
