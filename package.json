@@ -1,0 +1,24 @@
+{
+  "name": "k8s-sample-app",
+  "version": "0.0.1",
+  "description": "K8S Sample App for Harness.io",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "clean-dist": "rm -rf ./dist && mkdir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdmurray/k8s-sample-app.git"
+  },
+  "author": "Patrick Murray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pdmurray/k8s-sample-app/issues"
+  },
+  "homepage": "https://github.com/pdmurray/k8s-sample-app#readme",
+  "dependencies": {
+    "@harnessio/ff-nodejs-server-sdk": "^1.2.0"
+  }
+}
