@@ -8,7 +8,7 @@ const sdkKey = process.env.SDKKEY;
 
 const client = new Client(sdkKey, {
   enableStream: false,
-  pollInterval: 10 * 1000
+  pollInterval: 3 * 1000
 });
 
 client.on(Event.READY, () => {
