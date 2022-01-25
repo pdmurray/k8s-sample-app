@@ -1,2 +1,4 @@
 image: <+artifact.image>
 sdkKey: <+serviceVariables.sdkkey>
+createNamespace: true
+namespace: <+infra.namespace>
