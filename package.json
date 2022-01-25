@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "cd react-spa && npm run-script build && cd .. && cp -R react-spa/build/ public/",
-    "dev": "concurrently \"NODE_ENV=development PORT=3000 nodemon\" \" cd react-spa && PORT=3001 npm start && mv public/index.html public/app.html\""
+    "build": "cd react-spa && npm run-script build && cd .. && cp -R react-spa/build/ public/ && mv public/index.html public/app.html",
+    "dev": "concurrently \"NODE_ENV=development PORT=3000 nodemon\" \" cd react-spa && PORT=3001 npm start\""
   },
   "repository": {
     "type": "git",
