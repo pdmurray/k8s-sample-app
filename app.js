@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const pkg = require('@harnessio/ff-nodejs-server-sdk');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -49,5 +50,47 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+// Harness
+const { Client, Event } = pkg;
+
+const sdkKey = process.env.SDKKEY;
+
+const client = new Client(sdkKey, {
+  enableStream: false,
+  pollInterval: 3 * 1000
+});
+
+client.on(Event.READY, () => {
+  console.log('READY');
+});
+
+client.on(Event.FAILED, () => {
+  console.log('FAILED');
+});
+
+client.on(Event.CHANGED, (identifier) => {
+  if (identifier === 'name') {
+    console.log('name flag changed');
+  }
+});
+
+client
+  .waitForInitialization()
+  .then(() => {
+    setInterval(async () => {
+      const target = {
+        identifier: 'harness',
+      };
+      process.env.NAME = await client.stringVariation('name', target, '');
+      console.log('Evaluation for flag name and target: ', process.env.NAME, target);
+    }, 10000);
+  })
+  .catch((error) => {
+    console.log('Error', error);
+  });
+
 
 module.exports = app;

@@ -7,7 +7,18 @@
     "build": "cd react-spa && npm run-script build && cd .. && cp -R react-spa/build/ public/",
     "dev": "concurrently \"NODE_ENV=development PORT=3000 nodemon\" \" cd react-spa && PORT=3001 npm start\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdmurray/k8s-sample-app.git"
+  },
+  "author": "Patrick Murray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pdmurray/k8s-sample-app/issues"
+  },
+  "homepage": "https://github.com/pdmurray/k8s-sample-app#readme",
   "dependencies": {
+    "@harnessio/ff-nodejs-server-sdk": "^1.2.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
