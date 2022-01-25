@@ -1,4 +1,5 @@
 # k8s-sample-app
+## Patrick Murray
 
 Basic Example Node.JS app that uses Harness to deploy on K8S.
 
