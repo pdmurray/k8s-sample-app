@@ -16,7 +16,7 @@ spec:
       - name: k8s-sample-app
         image: {{.Values.image}}
         ports:
-          - containerPort: 8080
+          - containerPort: 3000
             protocol: TCP
         env:
           - name: NAME
@@ -31,9 +31,9 @@ metadata:
   name: k8s-sample-app
 spec:
   ports:
-  - port: 8080
+  - port: 3000
     protocol: TCP
-    targetPort: 8080
+    targetPort: 3000
   selector:
     run: k8s-sample-app
   type: NodePort
@@ -48,4 +48,4 @@ spec:
     service:
       name: k8s-sample-app
       port:
-        number: 8080
+        number: 3000
