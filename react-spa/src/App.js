@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 let DEV_URL = '';
 if (process.env.NODE_ENV === 'development') {
@@ -21,6 +22,7 @@ async componentDidMount() {
     users
   });
 }
+
 render() {
   return (
    <div className="App">
