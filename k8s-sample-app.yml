@@ -30,3 +30,47 @@ spec:
             value: Default
           - name: SDKKEY
             value: {{.Values.sdkKey}}
+
+{{- if .Values.metallb}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-sample-app
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: k8s-sample-app
+{{- end}}
+{{- if .Values.gcplb}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-sample-app
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: k8s-sample-app
+  type: NodePort
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-ingress
+spec:
+  defaultBackend:
+    service:
+      name: k8s-sample-app
+      port:
+        number: 8080
+{{- end}}
+

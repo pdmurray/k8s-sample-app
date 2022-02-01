@@ -2,3 +2,6 @@ image: <+artifact.image>
 sdkKey: <+serviceVariables.sdkkey>
 createNamespace: true
 namespace: <+infra.namespace>
+gcplb: false
+metallb: true
+
